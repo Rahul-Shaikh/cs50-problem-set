@@ -61,7 +61,6 @@ int main(int argc, char* argv[])
     bin = bi; bfn = bf;
     bin.biWidth = n * bin.biWidth;
     bin.biHeight *= n;
-    printf("width: %d\nHeight: %d\n", bin.biWidth, bin.biHeight);
 
     // need to write code that changes the bf and  bi here
     int paddingn = (4 - (bin.biWidth * sizeof(RGBTRIPLE)) % 4) % 4;
@@ -70,7 +69,6 @@ int main(int argc, char* argv[])
     bin.biSizeImage = abs(bin.biHeight)*((bin.biWidth * sizeof(RGBTRIPLE)) + paddingn);
     bfn.bfSize = 54 + bin.biSizeImage;
 
-    printf("paddingn: %d\nbin.biSizeImage: %d\n", paddingn, bin.biSizeImage);
     // write outfile's BITMAPFILEHEADER
     fwrite(&bfn, sizeof(BITMAPFILEHEADER), 1, outptr);
 
